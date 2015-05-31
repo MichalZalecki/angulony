@@ -1,7 +1,7 @@
 'use strict';
 
 class AboutController {
-  constructor(foo) {
+  constructor() {
     this.info = "We're awesome!";
   }
 }

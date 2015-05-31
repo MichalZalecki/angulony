@@ -1,20 +1,24 @@
 'use strict';
 
 class GreetingCtrl {
-  constructor($scope) {
-    this.person = 'Michał';
+  constructor($scope, $log) {
+    this.name = $scope.name;
+    $scope.$watch( () => this.name, (newVal, oldVal) => {
+      $log.log(`is ${newVal}, but was ${oldVal}`);
+    });
   }
 }
-// GreetingCtrl.$inject = ['$scope']
 
 export default angular
   .module('greeting.directive', [])
   .directive('greeting', () => {
     require('./greeting.scss');
     return {
-      // controller: ['$scope', GreetingCtrl], // without GreetingCtrl.$inject
       controller: GreetingCtrl,
       controllerAs: 'greeting',
+      scope: {
+        name: '@'
+      },
       // templateUrl: './modules/greeting/greeting.html' // or require raw html
       template: require('./greeting.html')
     }
