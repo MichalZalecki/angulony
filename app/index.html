@@ -8,6 +8,11 @@
 <body>
   <p>Angular is working: {{ 1 + 1 == 2 }}</p>
   <greeting></greeting>
+  <ul>
+    <li><a ui-sref="home">Home</a></li>
+    <li><a ui-sref="about">About</a></li>
+  </ul>
+  <div ui-view></div>
   <script src="http://localhost:8080/webpack-dev-server.js"></script>
   <script src="bundle.js"></script>
 </body>

@@ -5,7 +5,7 @@ class GreetingCtrl {
     this.person = 'Michał';
   }
 }
-// GreetingCtrl.$inject = ['$scope'] //
+// GreetingCtrl.$inject = ['$scope']
 
 export default angular
   .module('greeting.directive', [])

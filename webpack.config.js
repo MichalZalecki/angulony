@@ -17,7 +17,7 @@ var config = {
   },
   resolve: {
     alias: {},
-    root: __dirname + '/app/modules'
+    root: __dirname + '/app/'
   },
   module: {
     noParse: [],
@@ -37,5 +37,6 @@ var config = {
 }
 
 config.addVendor('angular', node_modules + '/angular/angular.js');
+config.addVendor('angular-ui-router', node_modules + '/angular-ui-router/release/angular-ui-router.js');
 
 module.exports = config;
