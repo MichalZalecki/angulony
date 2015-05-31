@@ -17,3 +17,9 @@
 ### Other
 * http://blog.romanliutikov.com/post/63383858003/how-to-forget-about-jquery-and-start-using-native
 * http://toddmotto.com/digging-into-angulars-controller-as-syntax/
+
+## TODO
+
+* Styles
+* templateProvider vs templateUrl
+* index.js in modules
