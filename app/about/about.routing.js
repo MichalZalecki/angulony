@@ -9,7 +9,7 @@ function aboutRouting($stateProvider) {
       resolve: {
         loadHomeController: ($q, $ocLazyLoad) => {
           return $q((resolve) => {
-            require.ensure([], function() {
+            require.ensure([], () => {
               $ocLazyLoad.load({name: 'about'});
               resolve(require('about/about').controller);
             });
