@@ -6,12 +6,12 @@ var config = {
   addVendor: function (name, path) {
     this.resolve.alias[name] = path;
     this.module.noParse.push(new RegExp('^' + name + '$'));
-    this.entry.vendor.push(name);
+    this.entry.vendors.push(name);
   },
   context: __dirname + '/app',
   entry: {
-    app: [ 'webpack/hot/dev-server', './core/bootstrap.js' ],
-    vendor: []
+    app: [ './core/bootstrap.js' ],
+    vendors: []
   },
   output: {
     path: __dirname + '/app',
@@ -35,11 +35,12 @@ var config = {
         production: process.env.NODE_ENV === 'production'
       }
     }),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.bundle.js')
   ]
 }
 
 config.addVendor('angular', node_modules + '/angular/angular.js');
+config.addVendor('angular-resource', node_modules + '/angular-resource/angular-resource.js');
 config.addVendor('angular-ui-router', node_modules + '/angular-ui-router/release/angular-ui-router.js');
 
 module.exports = config;
