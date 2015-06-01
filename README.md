@@ -1,7 +1,6 @@
 # Angulony
 
-* each page in its own directory
-  * routing configs are required in main.js
+* Creating high-level divisions by functionality and lower-level divisions by component types. (Folders-by-Feature Structure)
 
 ## Sources
 

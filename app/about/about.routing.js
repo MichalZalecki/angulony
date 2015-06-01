@@ -8,15 +8,17 @@ function aboutRouting($stateProvider) {
       controller: 'AboutController as about',
       resolve: {
         foo: function($q, $ocLazyLoad) {
-          return $q((resolve) => {
-            require.ensure([], function() {
-              let module = require('about/about');
-              $ocLazyLoad.load({
-                name: 'about',
-              });
-              resolve(module.controller);
+          var deferred = $q.defer();
+
+          require.ensure([], function() {
+            let module = require('about/about');
+            $ocLazyLoad.load({
+              name: 'about',
             });
+            deferred.resolve(module.controller);
           });
+
+          return deferred.promise;
         }
       }
     });
