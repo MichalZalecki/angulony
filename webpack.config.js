@@ -6,12 +6,12 @@ var config = {
   addVendor: function (name, path) {
     this.resolve.alias[name] = path;
     this.module.noParse.push(new RegExp('^' + name + '$'));
-    this.entry.vendors.push(name);
+    this.entry.vendor.push(name);
   },
   context: __dirname + '/app',
   entry: {
     app: [ 'webpack/hot/dev-server', './core/bootstrap.js' ],
-    vendors: []
+    vendor: []
   },
   output: {
     path: __dirname + '/app',
@@ -35,7 +35,7 @@ var config = {
         production: process.env.NODE_ENV === 'production'
       }
     }),
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
   ]
 }
 
