@@ -9,17 +9,15 @@ function homeRouting($stateProvider, $urlRouterProvider) {
       controller: 'HomeController as home',
       resolve: {
         foo: function($q, $ocLazyLoad) {
-          var deferred = $q.defer();
-
-          require.ensure([], function() {
-            let module = require('home/home');
-            $ocLazyLoad.load({
-              name: 'home',
+          return $q((resolve) => {
+            require.ensure([], function() {
+              let module = require('home/home');
+              $ocLazyLoad.load({
+                name: 'home',
+              });
+              resolve(module.controller);
             });
-            deferred.resolve(module.controller);
           });
-
-          return deferred.promise;
         }
       }
     });
