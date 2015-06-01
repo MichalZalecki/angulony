@@ -8,14 +8,11 @@ function homeRouting($stateProvider, $urlRouterProvider) {
       templateUrl: 'home/home.html',
       controller: 'HomeController as home',
       resolve: {
-        foo: function($q, $ocLazyLoad) {
+        loadHomeController: ($q, $ocLazyLoad) => {
           return $q((resolve) => {
             require.ensure([], function() {
-              let module = require('home/home');
-              $ocLazyLoad.load({
-                name: 'home',
-              });
-              resolve(module.controller);
+              $ocLazyLoad.load({name: 'home'});
+              resolve(require('home/home').controller);
             });
           });
         }

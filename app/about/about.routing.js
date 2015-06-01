@@ -7,14 +7,11 @@ function aboutRouting($stateProvider) {
       templateUrl: 'about/about.html',
       controller: 'AboutController as about',
       resolve: {
-        foo: function($q, $ocLazyLoad) {
+        loadHomeController: ($q, $ocLazyLoad) => {
           return $q((resolve) => {
             require.ensure([], function() {
-              let module = require('home/home');
-              $ocLazyLoad.load({
-                name: 'home',
-              });
-              resolve(module.controller);
+              $ocLazyLoad.load({name: 'about'});
+              resolve(require('about/about').controller);
             });
           });
         }
