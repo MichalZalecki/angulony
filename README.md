@@ -24,3 +24,9 @@
 * Styles
 * templateProvider vs templateUrl
 * index.js in modules
+
+## Working with RoR
+
+```
+cp app/* railsapp/public/ -r
+```
