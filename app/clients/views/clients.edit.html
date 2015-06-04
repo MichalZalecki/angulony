@@ -1,0 +1,37 @@
+<h1>Edit Client</h1>
+<form novalidate name="vm.form">
+  <div>
+    <label for="client-first_name">First name</label>
+    <input
+      type="text"
+      name="first_name"
+      id="client-first_name"
+      ng-model="vm.client.first_name"
+      required="true">
+    <div
+      ng-messages='vm.form.first_name.$error'
+      ng-if="vm.form.first_name.$dirty"
+      role='alert'>
+      <div ng-message="required">Field is required</div>
+    </div>
+  </div>
+  <div>
+    <label for="client-last_name">Last name</label>
+    <input
+      type="text"
+      name="last_name"
+      id="client-last_name"
+      ng-model="vm.client.last_name"
+      required="true">
+    <div
+      ng-messages='vm.form.last_name.$error'
+      ng-if="vm.form.last_name.$dirty"
+      role='alert'>
+      <div ng-message="required">Field is required</div>
+    </div>
+  </div>
+  <div>
+    <input type="submit" value="Update" ng-click="vm.save()">
+    <input type="button" value="Reset" ng-click="vm.reset()">
+  </div>
+</form>

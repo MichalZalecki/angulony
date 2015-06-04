@@ -42,5 +42,7 @@ var config = {
 config.addVendor('angular', node_modules + '/angular/angular.js');
 config.addVendor('angular-resource', node_modules + '/angular-resource/angular-resource.js');
 config.addVendor('angular-ui-router', node_modules + '/angular-ui-router/release/angular-ui-router.js');
+config.addVendor('ocLazyLoad', node_modules + '/oclazyload/dist/ocLazyLoad.js');
+config.addVendor('angular-messages', node_modules + '/angular-messages/angular-messages.js');
 
 module.exports = config;

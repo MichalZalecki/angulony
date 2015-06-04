@@ -18,6 +18,7 @@
 ### Other
 * http://blog.romanliutikov.com/post/63383858003/how-to-forget-about-jquery-and-start-using-native
 * http://toddmotto.com/digging-into-angulars-controller-as-syntax/
+* http://www.technofattie.com/2014/07/01/using-angular-forms-with-controller-as-syntax.html
 
 ## TODO
 

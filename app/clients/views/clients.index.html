@@ -1,0 +1,9 @@
+<ul>
+  <li ng-repeat="client in vm.clients">
+    <strong>{{ client.first_name }} {{ client.last_name }}</strong>
+    <a ui-sref="clients.show({ id: client.id })">Show</a>
+    <a ui-sref="clients.edit({ id: client.id })">Edit</a>
+    <!-- TODO: remove element -->
+    <a ng-click="vm.destroy(client.id)">Destroy</a>
+  </li>
+</ul>
