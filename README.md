@@ -10,8 +10,10 @@
 * http://shmck.com/webpack-angular-part-2/
 * http://shmck.com/webpack-angular-part-3/
 * http://christianalfoni.github.io/javascript/2014/12/13/did-you-know-webpack-and-react-is-awesome.html
+* https://github.com/KamilLelonek/react-dci/
 
 ### Style guides
+#### Angular
 * https://github.com/mgechev/angularjs-style-guide
 * https://github.com/johnpapa/angular-styleguide
 
@@ -26,8 +28,15 @@
 * templateProvider vs templateUrl
 * index.js in modules
 
-## Working with RoR
+## Set up an API in RoR
 
 ```
-cp app/* railsapp/public/ -r
+rails new gimme_api
+cd gimme_api
+rails g scaffold Client first_name last_name email
+rake db:migrate
+cd ..
+cp app/* gimme_api/public/ -r
 ```
+
+It does the job for example purpose.

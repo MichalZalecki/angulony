@@ -2,7 +2,7 @@
 
 class ClientsResource {
   constructor($resource) {
-    let resource = $resource("http://localhost:3000/api/clients/:id", { id: "@id" },
+    let resource = $resource("http://localhost:3000/clients/:id", { id: "@id" },
       {
         'create':  { method: 'POST' },
         'index':   { method: 'GET', isArray: true },
