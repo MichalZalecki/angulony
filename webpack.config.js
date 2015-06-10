@@ -1,4 +1,5 @@
-var webpack = require('webpack');
+var webpack           = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var node_modules     = __dirname + '/node_modules';
 var bower_components = __dirname + '/bower_components';
@@ -25,9 +26,14 @@ var config = {
   module: {
     noParse: [],
     loaders: [
-      { test: /\.js?$/, exclude: /node_modules/, loader: 'ng-annotate!babel' },
-      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.js?$/, exclude: /node_modules|bower_components/, loader: 'ng-annotate!babel' },
+      { test: /\.scss$/, exclude: /app.scss/, loader: 'style!css!sass' },
       { test: /\.html$/, loader: 'raw' },
+      {
+        test: /\.scss$/,
+        include: /app.scss/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+      }
     ]
   },
   plugins: [
@@ -36,7 +42,8 @@ var config = {
         production: process.env.NODE_ENV === 'production'
       }
     }),
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.bundle.js')
+    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.bundle.js'),
+    new ExtractTextPlugin("app.css")
   ]
 }
 

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "homepage": "https://github.com/MichalZalecki/angulony",
   "authors": [
-    "Michał Załęcki <zalecki.post@gmail.com>"
+    "Michal Zalecki <michal@michalzalecki.com>"
   ],
   "license": "MIT",
   "ignore": [
@@ -18,6 +18,10 @@
     "angular-resource": "~1.4.0",
     "angular-ui-router": "~0.2.15",
     "angular-messages": "~1.4.0",
-    "oclazyload": "~1.0.1"
+    "oclazyload": "~1.0.1",
+    "foundation": "~5.5.2"
+  },
+  "resolutions": {
+    "angular": "~1.4.0"
   }
 }
