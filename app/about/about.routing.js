@@ -10,8 +10,9 @@ function aboutRouting($stateProvider) {
         loadHomeController: ($q, $ocLazyLoad) => {
           return $q((resolve) => {
             require.ensure([], () => {
+              let mod = require('about/about');
               $ocLazyLoad.load({name: 'about'});
-              resolve(require('about/about').controller);
+              resolve(mod.controller);
             });
           });
         }

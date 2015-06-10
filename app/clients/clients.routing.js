@@ -10,8 +10,9 @@ function clientsRouting($stateProvider) {
         loadClientsController: ($q, $ocLazyLoad) => {
           return $q((resolve) => {
             require.ensure([], () => {
+              let mod = require('clients/clients');
               $ocLazyLoad.load({name: 'clients'});
-              resolve(require('clients/clients').controller);
+              resolve(mod.controller);
             });
           });
         }

@@ -1,3 +1,4 @@
 node_modules/
 *bundle.js
-railsapp/
+bower_components/
+gimme_api/

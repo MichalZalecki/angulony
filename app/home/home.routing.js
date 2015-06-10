@@ -11,8 +11,9 @@ function homeRouting($stateProvider, $urlRouterProvider) {
         loadHomeController: ($q, $ocLazyLoad) => {
           return $q((resolve) => {
             require.ensure([], () => {
+              let mod = require('home/home');
               $ocLazyLoad.load({name: 'home'});
-              resolve(require('home/home').controller);
+              resolve(mod.controller);
             });
           });
         }
