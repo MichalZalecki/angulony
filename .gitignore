@@ -2,3 +2,4 @@ node_modules/
 *bundle.js
 bower_components/
 gimme_api/
+app/build

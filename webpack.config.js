@@ -1,5 +1,5 @@
 var webpack           = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var node_modules     = __dirname + '/node_modules';
 var bower_components = __dirname + '/bower_components';
@@ -12,12 +12,13 @@ var config = {
   },
   context: __dirname + '/app',
   entry: {
-    app: [ './core/bootstrap.js' ],
+    app: [ './_core/bootstrap.js' ],
     vendors: []
   },
   output: {
-    path: __dirname + '/app',
-    filename: 'bundle.js'
+    path: __dirname + '/app/build/',
+    filename: 'bundle.js',
+    publicPath: '/build/'
   },
   resolve: {
     alias: {},
@@ -26,14 +27,17 @@ var config = {
   module: {
     noParse: [],
     loaders: [
-      { test: /\.js?$/, exclude: /node_modules|bower_components/, loader: 'ng-annotate!babel' },
+      { test: /\.js?$/, exclude: /node_modules|bower_components/,
+        loader: 'ng-annotate!babel' },
       { test: /\.scss$/, exclude: /app.scss/, loader: 'style!css!sass' },
       { test: /\.html$/, loader: 'raw' },
-      {
-        test: /\.scss$/,
-        include: /app.scss/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
-      }
+      { test: /\.scss$/, include: /app.scss/,
+        loader: ExtractTextPlugin.extract('style', 'css!sass') },
+      { test: /\.woff2?$/,
+        loader: "url-loader?limit=10000&minetype=application/font-woff" },
+      { test: /\.ttf$/, loader: "file-loader" },
+      { test: /\.eot$/, loader: "file-loader" },
+      { test: /\.svg$/, loader: "file-loader" }
     ]
   },
   plugins: [
@@ -43,7 +47,7 @@ var config = {
       }
     }),
     new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.bundle.js'),
-    new ExtractTextPlugin("app.css")
+    new ExtractTextPlugin('app.css')
   ]
 }
 

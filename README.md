@@ -1,4 +1,4 @@
-# Angulony
+  # Angulony
 
 * each page in its own directory
   * routing configs are required in main.js
@@ -40,8 +40,7 @@ It does the job for example purpose.
 
 ## TODO
 
+* production and development configs
+* karma
 * `template` vs `templateProvider` vs `templateUrl`
   (one big all the time vs many chunks, each when needed)
-* `index.js` in modules populates modeule routing
-* Zurb Foundation: JS files
-
