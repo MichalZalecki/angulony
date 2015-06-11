@@ -12,7 +12,7 @@ var config = {
   },
   context: __dirname + '/app',
   entry: {
-    app: [ './core/bootstrap.js' ],
+    app: [ 'webpack/hot/dev-server','./core/bootstrap.js' ],
     vendors: []
   },
   output: {

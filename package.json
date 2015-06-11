@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start": "http-server app",
-    "dev": "webpack --devtool eval --progress --colors --watch"
+    "dev": "webpack --devtool eval --progress --colors --watch",
+    "dev-s": "webpack-dev-server --content-base app --hot --devtool eval --progress --colors"
   },
   "author": "Michal Zalecki <michal@michalzalecki.com>",
   "license": "ISC",
