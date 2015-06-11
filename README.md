@@ -41,6 +41,8 @@ It does the job for example purpose.
 ## TODO
 
 * production and development configs
+* haml
 * karma
 * `template` vs `templateProvider` vs `templateUrl`
   (one big all the time vs many chunks, each when needed)
+* updates

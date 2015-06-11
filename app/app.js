@@ -1,6 +1,6 @@
 'use strict';
 
-require('./_assets/scss/app.scss');
+require('assets/scss/app.scss');
 
 export default angular.module('appName', [
   // files added to vendors.bundle.js are already
@@ -10,8 +10,8 @@ export default angular.module('appName', [
   'ngResource',
   'ngMessages',
   // require angular modules which we created
-  require('_common/greeting').name,
-  require('home').name,
-  require('about').name,
-  require('clients').name
+  require('commons/greeting').name,
+  require('pages/home').name,
+  require('pages/about').name,
+  require('pages/clients').name
 ]);

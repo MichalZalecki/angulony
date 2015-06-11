@@ -5,13 +5,13 @@ function homeRouting($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/home',
-      templateUrl: 'home/home.html',
-      controller: 'HomeController as home',
+      template: require('./home.html'),
+      controller: 'HomeController as vm',
       resolve: {
         loadHomeController: ($q, $ocLazyLoad) => {
           return $q((resolve) => {
             require.ensure([], () => {
-              let mod = require('home/home');
+              let mod = require('./home');
               $ocLazyLoad.load({name: 'home'});
               resolve(mod.controller);
             });
